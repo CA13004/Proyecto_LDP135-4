@@ -98,9 +98,14 @@ Algoritmo PlataformaCursos_Completo
                             FinSi
                         2:
                             Escribir "Tus cursos:"
-                            Para i <- 1 Hasta contadorInscripciones Hacer
-                                Escribir "- ", inscripciones[i]
-                            FinPara
+							Si contadorInscripciones = 0 Entonces
+                                Escribir "Aun no ha inscrito ningun curso"
+                            Sino
+                                Para i <- 0 Hasta contadorInscripciones Hacer
+									Escribir "- ", inscripciones[i]
+								FinPara
+                            FinSi
+                            
                     FinSegun
                 Hasta Que menuAccion = 3
         FinSegun
