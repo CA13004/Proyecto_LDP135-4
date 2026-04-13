@@ -1,4 +1,4 @@
-Algoritmo PlataformaCursos_APPrende+
+Algoritmo PlataformaCursos_APPrende
     // ------------------------ Declaración de variables 
     Definir estudiante, curso, instructorNombre, instructorEspecialidad Como Cadena
     Definir cursosDisponibles, instructoresAsignados Como Cadena 
