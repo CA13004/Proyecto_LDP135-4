@@ -1,4 +1,7 @@
-Proyecto LDP 135 - Portal de aprendizaje en Línea 
+<p align="center">
+    <img src="assets/portada.png" alt="Portada APPprende" width="600"/>
+</p>
+
 Integrantes
 - Liliana Melissa Cruz Henriquez - CH20014
 - Gerson Antonio Chámul Ramirez - CR25082
