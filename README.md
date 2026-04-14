@@ -10,7 +10,7 @@ Integrantes
 APPrende+ : Plataforma de Gestión de Aprendizaje (LMS)
 Bienvenido al repositorio de APPrende+, una solución conceptual de LMS desarrollada en pseudocódigo (PSeInt). Este proyecto simula las interacciones básicas entre instructores y estudiantes, permitiendo la gestión dinámica de cursos y registros de inscripción.
 *************************************************************************
-## 🏗️ Arquitectura de Datos
+##  Arquitectura de Datos
 
 El sistema utiliza una estructura de almacenamiento basada en arreglos unidimensionales con una capacidad de 100 registros cada uno:
 
@@ -22,7 +22,7 @@ El sistema utiliza una estructura de almacenamiento basada en arreglos unidimens
 
 ---
 
-## 🛠️ Lógica de los Módulos Principales
+##  Lógica de los Módulos Principales
 
 El algoritmo se divide en dos flujos de trabajo independientes controlados por un menú de roles:
 
@@ -42,13 +42,13 @@ Diseñado para la consulta e inscripción de contenidos con validaciones integra
 
 ---
 
-## 🚦 Flujo de Control y Algoritmos
+##  Flujo de Control y Algoritmos
 * **Ciclos de Repetición**: Se utilizan estructuras `Repetir...Hasta Que` para mantener al usuario dentro de su módulo hasta que decida volver al menú principal o salir.
 * **Estructuras de Decisión**: Se implementan bloques `Segun` para la navegación de menús y `Si-Entonces` para las reglas de negocio (como el manejo de cursos vacíos o errores de selección).
 
 ---
 
-## 🚀 Contribución para Desarrolladores
+##  Contribución para Desarrolladores
 
 Si deseas aportar al repositorio, ten en cuenta:
 1. **Manejo de Índices**: El sistema inicia el conteo de cursos en 5 (precargados).
