@@ -1,5 +1,5 @@
 Algoritmo PlataformaCursos_APPrende
-    // ------------------------ Declaración de variables 
+    // ------------------------ DeclaraciÃ³n de variables 
     Definir estudiante, curso, instructorNombre, instructorEspecialidad Como Cadena
     Definir cursosDisponibles, instructoresAsignados Como Cadena 
     Definir inscripciones Como Cadena
@@ -9,7 +9,7 @@ Algoritmo PlataformaCursos_APPrende
     Definir contadorInscripciones, contadorCursos, menuRol, opcionSeleccionada, cursoSeleccionado Como Entero
     Definir repetido Como Logico
     
-    // -------------------------- INICIALIZACIÓN
+    // -------------------------- INICIALIZACIÃ“N
     cursosDisponibles[1] <- "Matematicas"; instructoresAsignados[1] <- "Ing. Herrera"
     cursosDisponibles[2] <- "Programacion"; instructoresAsignados[2] <- "Ing. Erick"
     cursosDisponibles[3] <- "Bases de Datos"; instructoresAsignados[3] <- "Ing Albaluz"
@@ -49,7 +49,7 @@ Algoritmo PlataformaCursos_APPrende
                         instructoresAsignados[contadorCursos] <- instructorNombre
 						Escribir "Curso " Sin Saltar
 						Escribir cursosDisponibles[contadorCursos] Sin Saltar
-						Escribir " creado con éxito."
+						Escribir " creado con Ã©xito."
                     FinSi
                     
                     Si opcionSeleccionada = 2 Entonces
@@ -68,7 +68,7 @@ Algoritmo PlataformaCursos_APPrende
 				
 				// Reiniciar inscripciones cada vez que ingrese otro estudiante
 				contadorInscripciones <- 0
-				Para i <- 1 Hasta 10 Hacer
+				Para i <- 1 Hasta 100 Hacer
 					inscripciones[i] <- ""
 				FinPara
 				
@@ -89,7 +89,7 @@ Algoritmo PlataformaCursos_APPrende
                             Leer cursoSeleccionado
 							// validacion si el usuario elige una opcion que no esta en los cursos que se le muestran
 							Si cursoSeleccionado < 1 | cursoSeleccionado > contadorCursos Entonces
-								Escribir "Selección inválida."
+								Escribir "SelecciÃ³n invÃ¡lida."
 							Sino
 								curso <- cursosDisponibles[cursoSeleccionado]
 								
@@ -104,7 +104,7 @@ Algoritmo PlataformaCursos_APPrende
 								FinSi
 								
 								Si repetido Entonces
-									Escribir "Error: Ya estás inscrito en este curso."
+									Escribir "Error: Ya estÃ¡s inscrito en este curso."
 								Sino
 									contadorInscripciones <- contadorInscripciones + 1
 									inscripciones[contadorInscripciones] <- curso
