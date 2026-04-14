@@ -48,12 +48,3 @@ Diseñado para la consulta e inscripción de contenidos con validaciones integra
 
 ---
 
-##  Contribución para Desarrolladores
-
-Si deseas aportar al repositorio, ten en cuenta:
-1. **Manejo de Índices**: El sistema inicia el conteo de cursos en 5 (precargados).
-2. **Validaciones**: Cualquier nueva funcionalidad debe incluir validaciones para evitar desbordamientos en los arreglos de tamaño 100.
-3. **Modularización**: Se busca optimizar las búsquedas de "cursos repetidos" mediante funciones más eficientes.
-
----
-*Desarrollado como prototipo educativo para la gestión de plataformas LMS.*
