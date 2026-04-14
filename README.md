@@ -26,13 +26,13 @@ El sistema utiliza una estructura de almacenamiento basada en arreglos unidimens
 
 El algoritmo se divide en dos flujos de trabajo independientes controlados por un menú de roles:
 
-### 1. Módulo del Instructor 👨‍🏫
+### 1. Módulo del Instructor 
 Este módulo permite a los docentes gestionar la oferta académica mediante las siguientes funciones:
 * **Creación Dinámica**: Los instructores pueden añadir nuevos cursos, los cuales se indexan automáticamente bajo su nombre de usuario.
 * **Persistencia Global**: Al crear un curso, el contador global `contadorCursos` se incrementa, haciendo que el contenido sea visible para todos los estudiantes inmediatamente.
 * **Filtro de Autoría**: El sistema recorre el arreglo global y filtra mediante una estructura `Si-Entonces` para mostrar únicamente los cursos creados por el instructor que tiene la sesión activa.
 
-### 2. Módulo del Estudiante 🎓
+### 2. Módulo del Estudiante 
 Diseñado para la consulta e inscripción de contenidos con validaciones integradas:
 * **Catálogo en Tiempo Real**: El estudiante visualiza todos los cursos disponibles junto con el nombre del profesor asignado.
 * **Validación de Inscripción**: 
