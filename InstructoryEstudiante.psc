@@ -68,7 +68,7 @@ Algoritmo PlataformaCursos_APPrende
 				
 				// Reiniciar inscripciones cada vez que ingrese otro estudiante
 				contadorInscripciones <- 0
-				Para i <- 1 Hasta 100 Hacer
+				Para i <- 1 Hasta 10 Hacer
 					inscripciones[i] <- ""
 				FinPara
 				
@@ -93,6 +93,7 @@ Algoritmo PlataformaCursos_APPrende
 							Sino
 								curso <- cursosDisponibles[cursoSeleccionado]
 								
+								repetido <- Falso
 								Si contadorInscripciones > 0 Entonces
 									Para i <- 1 Hasta contadorInscripciones Hacer
 										Si inscripciones[i] = curso Entonces
