@@ -6,7 +6,7 @@ class Usuario:
 
 class Instructor(Usuario):
     """Representa a un instructor en la plataforma."""
-    pass
+
 
 class Estudiante(Usuario):
     """Representa a un estudiante en la plataforma."""
@@ -15,6 +15,7 @@ class Estudiante(Usuario):
         self.cursos_inscritos: list[str] = []
 
     def inscribir_curso(self, nombre_curso: str) -> bool:
+        """Agrega un curso a la lista de cursos inscritos del estudiante."""
         if nombre_curso in self.cursos_inscritos:
             return False
         self.cursos_inscritos.append(nombre_curso)
