@@ -1,4 +1,4 @@
-# Importa las clases de tus otros archivos si los separas
+# Importe de clasess
 from models import Instructor, Estudiante
 from managers import GestorCursos
 
@@ -34,7 +34,7 @@ class PlataformaCLI:
                 print("Opción inválida. Intente de nuevo.")
 
     def _menu_instructor(self):
-        nombre = input("Ingrese su nombre: ")
+        nombre = input("Ingrese su nombre: ").strip()
         instructor = Instructor(nombre)
 
         while True:
@@ -43,7 +43,8 @@ class PlataformaCLI:
             print("2. Ver mis cursos ")
             print("3. Editar nombre de un curso ")
             print("4. Eliminar un curso ")
-            print("5. Volver al inicio")
+            print("5. Ver estudiantes de un curso ")
+            print("6. Volver al inicio")
             opcion = input("Seleccione una opción: ")
 
             if opcion == '1':
@@ -74,18 +75,37 @@ class PlataformaCLI:
                     if self.gestor.eliminar_curso(id_curso, instructor.nombre):
                         print("Curso eliminado correctamente.")
                     else:
-                        print("Error: No se encontró el curso o no tienes "
-                      "permisos para eliminarlo.")
+                        print("Error: No se encontró el curso o no tienes permisos para eliminarlo.")
                 except ValueError:
                     print("Por favor, ingrese un número de ID válido.")
+            
             elif opcion == '5':
+                try:
+                    id_curso = int(input("Ingrese el ID del curso para ver sus estudiantes: "))
+                    cursos_propios = self.gestor.obtener_cursos_por_instructor(instructor.nombre)
+                    es_mio = any(c.id_curso == id_curso for c in cursos_propios)
+                    
+                    if es_mio:
+                        alumnos = self.gestor.obtener_estudiantes_de_curso(id_curso)
+                        if not alumnos:
+                            print("Aún no hay estudiantes inscritos en este curso.")
+                        else:
+                            print("Estudiantes inscritos:")
+                            for al in alumnos:
+                                print(f"- {al.nombre}")
+                    else:
+                        print("Error: El curso no existe o no tienes permisos para verlo.")
+                except ValueError:
+                    print("Por favor, ingrese un número de ID válido.")
+                    
+            elif opcion == '6':
                 break
             else:
                 print("Opción inválida.")
 
     def _menu_estudiante(self):
-        nombre = input("Ingrese nombre del estudiante: ")
-        estudiante = Estudiante(nombre)
+        nombre = input("Ingrese nombre del estudiante: ").strip()
+        estudiante = self.gestor.obtener_o_crear_estudiante(nombre)
 
         while True:
             print(f"\n--- MENU ESTUDIANTE: {estudiante.nombre} ---")
@@ -98,19 +118,15 @@ class PlataformaCLI:
                 cursos = self.gestor.obtener_todos_los_cursos()
                 print("Cursos disponibles:")
                 for c in cursos:
-                    print(f"[{c.id_curso}] - {c.nombre} (Prof. {c.instructor.nombre})")
+                    print(f"[{c.id_curso}] - {c.nombre} (Ing. {c.instructor.nombre})")
                 try:
                     id_seleccionado = int(input("Ingrese el ID del curso: "))
-                    curso_encontrado = next(
-                        (c for c in cursos if c.id_curso == id_seleccionado),
-                        None)
-                    if curso_encontrado:
-                        if estudiante.inscribir_curso(curso_encontrado.nombre):
-                            print(f" Inscrito correctamente en: {curso_encontrado.nombre}")
-                        else:
-                            print(" Error: Ya estás inscrito en este curso.")
+                    
+                    if self.gestor.inscribir_estudiante_en_curso(estudiante, id_seleccionado):
+                        curso_obj = next(c for c in cursos if c.id_curso == id_seleccionado)
+                        print(f" ¡Inscrito correctamente en: {curso_obj.nombre}!")
                     else:
-                        print(" Selección inválida.")
+                        print(" Error: ID inválido o ya estás inscrito en este curso.")
                 except ValueError:
                     print(" Por favor, ingrese un número de ID válido.")
 
@@ -120,7 +136,7 @@ class PlataformaCLI:
                 else:
                     print("Tus cursos inscritos:")
                     for c in estudiante.cursos_inscritos:
-                        print(f"- {c}")
+                        print(f"- {c.nombre} (Prof. {c.instructor.nombre})")
             elif opcion == '3':
                 break
             else:
